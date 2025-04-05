@@ -4,30 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quicktube</title>
+
+    <!-- External style.css in /static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
     <style>
         body { font-family: Arial, sans-serif; text-align: center; margin: 50px; }
         input, button { padding: 10px; margin: 10px; }
         img { max-width: 300px; display: block; margin: 20px auto; }
         footer { margin-top: 20px; font-size: 14px; color: gray; }
-    
-    .notice {
-      text-align: center;
-      background: rgba(255, 255, 0, 0.1);
-      color: #f1c40f;
-      font-weight: 500;
-      padding: 10px 15px;
-      border-radius: 12px;
-      margin: 20px auto;
-      max-width: 600px;
-      box-shadow: 0 0 8px rgba(241, 196, 15, 0.4);
-      font-size: 14px;
-      animation: fadeIn 1s ease-in-out;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-</style>
+
+        .notice {
+          text-align: center;
+          background: rgba(255, 255, 0, 0.1);
+          color: #f1c40f;
+          font-weight: 500;
+          padding: 10px 15px;
+          border-radius: 12px;
+          margin: 20px auto;
+          max-width: 600px;
+          box-shadow: 0 0 8px rgba(241, 196, 15, 0.4);
+          font-size: 14px;
+          animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <h1>quicktube</h1>
@@ -36,12 +40,14 @@
       ⚠️ <strong>Note:</strong> This free server may take a few seconds to wake up. If the site doesn’t load, try refreshing after 10–15 seconds.<br>
       ⏱️ <strong>Tip:</strong> For best performance, please avoid downloading videos longer than <strong>5 minutes</strong>.
     </div>
-<form action="/download" method="post" target="_blank">
+
+    <form action="/download" method="post" target="_blank">
         <input type="text" name="url" placeholder="Enter YouTube URL" required>
         <button type="submit">Download</button>
     </form>
-    <img src="static/image.jpg" alt="Thumbnail">
+
+    <img src="{{ url_for('static', filename='image.jpg') }}" alt="Thumbnail">
+
     <footer>© 2025 All rights reserved | Created by Anand GT</footer>
 </body>
 </html>
-
